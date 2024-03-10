@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess the Number Game</title>
+  <style>
+    body {
+      background-color: #d5bce4; 
+      display: flex; /*to display center*/
+      justify-content: center; /* align content center horizontal */
+      align-items: center; /*  align content center vertically */
+      height: 100vh;
+      margin: 0; 
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center; 
+      background-color: white; 
+      padding: 20px; /* Add some padding */
+      border-radius: 10px; /* Add border radius for rounded corners */
+    }
+
+    input, button {
+      margin-bottom: 10px; /* Add some spacing between input and button */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Guess the number from 1 to 10</h1>
+  <input id="one">
+  <button onclick="check()">Check</button>
+  <p id="two">Guess</p>
+  <p id="score">Your score</p>
+</div>
+
+<script>
+  var b1=document.getElementById("one")
+  var result=document.getElementById("two")
+  var sc=document.getElementById("score")
+  var a=Math.random();
+  var random=Math.floor(a*10)+1;
+  var score=10
+  function check(){
+    var val=Number(b1.value)
+    if(score==0){
+      alert("You lost and let restart")
+      score=10
+    }
+    if(val==random){
+      result.textContent="You are right"
+      alert("You WON")
+    }else{
+      result.textContent="You are wrong"
+      score--
+      sc.textContent="Score="+score
+    }
+  }
+</script>
+
+</body>
+</html>
